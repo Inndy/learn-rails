@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Authors</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.email %></td>
+        <td><%= link_to 'Show', author, class: 'btn btn-success' %></td>
+        <td><%= link_to 'Books', author_books_path(author), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Edit', edit_author_path(author), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Author', new_author_path, class: 'btn btn-primary' %>
